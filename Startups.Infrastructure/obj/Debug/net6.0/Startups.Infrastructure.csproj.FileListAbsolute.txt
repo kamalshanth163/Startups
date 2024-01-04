@@ -1,0 +1,12 @@
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\bin\Debug\net6.0\Startups.Infrastructure.deps.json
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\bin\Debug\net6.0\Startups.Infrastructure.dll
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\bin\Debug\net6.0\Startups.Infrastructure.pdb
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\obj\Debug\net6.0\Startups.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\obj\Debug\net6.0\Startups.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\obj\Debug\net6.0\Startups.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\obj\Debug\net6.0\Startups.Infrastructure.AssemblyInfo.cs
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\obj\Debug\net6.0\Startups.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\obj\Debug\net6.0\Startups.Infrastructure.dll
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\obj\Debug\net6.0\refint\Startups.Infrastructure.dll
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\obj\Debug\net6.0\Startups.Infrastructure.pdb
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\obj\Debug\net6.0\ref\Startups.Infrastructure.dll
