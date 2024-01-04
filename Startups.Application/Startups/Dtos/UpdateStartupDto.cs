@@ -1,6 +1,9 @@
-﻿namespace Startups.Application.Startups.Dtos
+﻿using Startups.Application.Common.Mappings;
+using Startups.Domain.Entities;
+
+namespace Startups.Application.Startups.Dtos
 {
-    public class UpdateStartupDto
+    public class UpdateStartupDto : IMapFrom<Startup>
     {
         public Guid Id { get; set; }
         public string BusinessDomain { get; set; } = null!;
@@ -11,5 +14,7 @@
         public string Website { get; set; } = null!;
         public string BusinessLocation { get; set; } = null!;
         public int EmployeeCount { get; set; } = 0;
+        public Guid FounderId { get; set; }
+        public Founder Founder { get; set; } = null!;
     }
 }

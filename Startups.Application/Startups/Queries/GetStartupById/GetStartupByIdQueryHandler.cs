@@ -5,12 +5,12 @@ using Startups.Domain.Repositories;
 
 namespace Startups.Application.Startups.Queries.GetStartupById
 {
-    public class GetStartupByIdQueryHandler : IRequestHandler<GetStartupByIdQuery, StartupDto>
+    public class CreateStartupCommandHandler : IRequestHandler<GetStartupByIdQuery, StartupDto>
     {
         private readonly IStartupRepository _startupRepository;
         private readonly IMapper _mapper;
 
-        public GetStartupByIdQueryHandler(IStartupRepository startupRepository, IMapper mapper)
+        public CreateStartupCommandHandler(IStartupRepository startupRepository, IMapper mapper)
         {
             _startupRepository = startupRepository;
             _mapper = mapper;

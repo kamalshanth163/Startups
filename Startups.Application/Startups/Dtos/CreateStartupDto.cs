@@ -1,8 +1,9 @@
-﻿using Startups.Domain.Entities;
+﻿using Startups.Application.Common.Mappings;
+using Startups.Domain.Entities;
 
 namespace Startups.Application.Startups.Dtos
 {
-    public class CreateStartupDto
+    public class CreateStartupDto : IMapFrom<Startup>
     {
         public Guid Id { get; set; }
         public string BusinessDomain { get; set; } = null!;

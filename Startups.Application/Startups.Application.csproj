@@ -9,9 +9,6 @@
   <ItemGroup>
     <Folder Include="Common\Exceptions\" />
     <Folder Include="Common\Behaviours\" />
-    <Folder Include="Startups\Commands\CreateStartup\" />
-    <Folder Include="Startups\Commands\DeleteStartup\" />
-    <Folder Include="Startups\Commands\UpdateStartup\" />
   </ItemGroup>
 
   <ItemGroup>
