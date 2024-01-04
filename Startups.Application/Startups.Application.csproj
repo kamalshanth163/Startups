@@ -7,14 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Mappings\" />
     <Folder Include="Common\Exceptions\" />
     <Folder Include="Common\Behaviours\" />
+    <Folder Include="Startups\Commands\CreateStartup\" />
     <Folder Include="Startups\Commands\DeleteStartup\" />
     <Folder Include="Startups\Commands\UpdateStartup\" />
-    <Folder Include="Startups\Commands\CreateStartup\" />
-    <Folder Include="Startups\Queries\GetStartupById\" />
-    <Folder Include="Startups\Queries\GetStartups\" />
   </ItemGroup>
 
   <ItemGroup>
