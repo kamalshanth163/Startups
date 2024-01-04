@@ -10,3 +10,8 @@ C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\obj\Debug\net6.0\Startups
 C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\obj\Debug\net6.0\refint\Startups.Infrastructure.dll
 C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\obj\Debug\net6.0\Startups.Infrastructure.pdb
 C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\obj\Debug\net6.0\ref\Startups.Infrastructure.dll
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\bin\Debug\net6.0\Startups.Application.dll
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\bin\Debug\net6.0\Startups.Domain.dll
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\bin\Debug\net6.0\Startups.Application.pdb
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\bin\Debug\net6.0\Startups.Domain.pdb
+C:\Users\DELL\Desktop\Startups\Startups.Infrastructure\obj\Debug\net6.0\Startups.Infrastructure.csproj.CopyComplete

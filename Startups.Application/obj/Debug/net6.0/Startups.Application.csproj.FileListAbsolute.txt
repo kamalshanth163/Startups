@@ -10,3 +10,6 @@ C:\Users\DELL\Desktop\Startups\Startups.Application\obj\Debug\net6.0\Startups.Ap
 C:\Users\DELL\Desktop\Startups\Startups.Application\obj\Debug\net6.0\refint\Startups.Application.dll
 C:\Users\DELL\Desktop\Startups\Startups.Application\obj\Debug\net6.0\Startups.Application.pdb
 C:\Users\DELL\Desktop\Startups\Startups.Application\obj\Debug\net6.0\ref\Startups.Application.dll
+C:\Users\DELL\Desktop\Startups\Startups.Application\bin\Debug\net6.0\Startups.Domain.dll
+C:\Users\DELL\Desktop\Startups\Startups.Application\bin\Debug\net6.0\Startups.Domain.pdb
+C:\Users\DELL\Desktop\Startups\Startups.Application\obj\Debug\net6.0\Startups.Application.csproj.CopyComplete
