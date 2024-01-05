@@ -8,8 +8,8 @@ config.json
 package-lock.json
 
 # Ignore bin and obj directories
-bin/
-obj/
+*/bin/
+*/obj/
 
 node_modules/
 .DS_Store
