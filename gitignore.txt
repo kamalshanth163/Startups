@@ -193,6 +193,8 @@ ClientBin/
 [Ss]tyle[Cc]op.*
 ~$*
 *~
+database.sqlite
+*.db
 *.dbmdl
 *.dbproj.schemaview
 *.pfx
