@@ -15,6 +15,7 @@ namespace Startups.Application.Startups.Dtos
         public string BusinessLocation { get; set; } = null!;
         public int EmployeeCount { get; set; } = 0;
         public Guid FounderId { get; set; }
-        public Founder Founder { get; set; } = null!;
+        public DateTimeOffset Created { get; set; }
+        public DateTimeOffset Updated { get; set; }
     }
 }

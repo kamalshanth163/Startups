@@ -1,7 +1,10 @@
-﻿namespace Startups.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Startups.Domain.Entities
 {
     public class Startup : BaseEntity
     {
+        [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
         public string BusinessDomain { get; set; } = null!;
         public string Description { get; set; } = null!;
@@ -15,6 +18,8 @@
         public Guid FounderId { get; set; }
         public Founder Founder { get; set; } = null!;
 
+
+        public Startup () { }
 
         public Startup(
             string businessDomain,

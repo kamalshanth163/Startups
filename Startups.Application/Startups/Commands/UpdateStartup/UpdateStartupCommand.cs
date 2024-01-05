@@ -5,7 +5,11 @@ namespace Startups.Application.Startups.Commands.UpdateStartup
 {
     public class UpdateStartupCommand : IRequest<StartupDto>
     {
-        public Guid Id { get; set; }
         public UpdateStartupDto Startup { get; set; } = null!;
+
+        public UpdateStartupCommand(UpdateStartupDto startup)
+        {
+            Startup = startup;
+        }
     }
 }
