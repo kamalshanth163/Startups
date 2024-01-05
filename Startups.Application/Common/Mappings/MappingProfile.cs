@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using Startups.Application.Founders.Dtos;
+using Startups.Application.Startups.Dtos;
+using Startups.Domain.Entities;
 using System.Reflection;
 
 namespace Startups.Application.Common.Mappings
@@ -8,6 +11,19 @@ namespace Startups.Application.Common.Mappings
         public MappingProfile()
         {
             ApplyMappingsFromAssembly(Assembly.GetExecutingAssembly());
+
+            CreateMap<CreateStartupDto, Startup>().ReverseMap();
+
+            CreateMap<UpdateStartupDto, Startup>().ReverseMap();
+
+            CreateMap<StartupDto, Startup>();
+
+            CreateMap<Startup, StartupDto>()
+                .ForMember(dest => dest.FounderName, opt => opt.MapFrom(src => src.Founder.Name));
+
+            CreateMap<FounderDto, Founder>().ReverseMap();
+
+            CreateMap<RegisterFounderDto, Founder>().ReverseMap();
         }
 
         private void ApplyMappingsFromAssembly(Assembly assembly)
