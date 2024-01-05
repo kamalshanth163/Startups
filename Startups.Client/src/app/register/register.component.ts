@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import axios from 'axios';
+import { environment } from '../../../environment';
 
 @Component({
   selector: 'app-register',
@@ -13,18 +15,12 @@ export class RegisterComponent {
   constructor(private http: HttpClient) {}
 
   register() {
-    // Assuming sampleurl/register is your endpoint
-    this.http.post('sampleurl/register', this.registerData)
-      .subscribe(response => {
-        // Handle registration success
-        console.log('Registration successful');
-      }, error => {
-        // Handle registration error
+    axios.post(environment.apiUrl + '/founders/register', this.registerData)
+      .then((response: any) => {
+        console.log('Registration successful:', response.data);
+      })
+      .catch((error: any) => {
         console.error('Registration failed:', error);
       });
-  }
-
-  toggleForms() {
-    this.showRegisterForm = !this.showRegisterForm;
   }
 }

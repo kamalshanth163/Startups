@@ -22,7 +22,7 @@
         <p class="mt-3">Already have an account? <a [routerLink]="['/login']">Login</a></p>
       </div>
       <div *ngIf="!showRegisterForm">
-        <app-login (toggleForms)="toggleForms()"></app-login>
+        <app-login></app-login>
       </div>
     </div>
   </div>
