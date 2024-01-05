@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import axios from 'axios';
 import { environment } from 'environment';
 
@@ -12,15 +12,22 @@ export class LoginComponent {
   showLoginForm: boolean = true;
   loginData: any = { email: '', password: '' };
 
-  constructor(private http: HttpClient) {}
+  constructor(private router: Router) {}
 
   login() {
     axios.post(environment.apiUrl + '/founders/login', this.loginData)
       .then((response: any) => {
-        console.log('Login successful:', response.data);
+        if (response?.data?.token) {
+          localStorage.setItem('startups-api-token', response.data.token);
+          this.router.navigate(['/dashboard']);
+        }
       })
       .catch((error: any) => {
         console.error('Login failed:', error);
       });
+  }
+
+  ngOnInit(){
+    localStorage.setItem('startups-api-token', "");
   }
 }
