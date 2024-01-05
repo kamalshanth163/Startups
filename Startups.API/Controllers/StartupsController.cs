@@ -5,6 +5,7 @@ using Startups.Application.Startups.Commands.DeleteStartup;
 using Startups.Application.Startups.Commands.UpdateStartup;
 using Startups.Application.Startups.Queries.GetStartupById;
 using Startups.Application.Startups.Queries.GetStartups;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Startups.API.Controllers
 {
@@ -13,6 +14,7 @@ namespace Startups.API.Controllers
     public class StartupsController : BaseController
     {
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             var startups = await Mediator.Send(new GetStartupsQuery());
@@ -20,6 +22,7 @@ namespace Startups.API.Controllers
         }
 
         [HttpGet("id")]
+        [Authorize]
         public async Task<IActionResult> GetById(Guid id)
         {
             var startup = await Mediator.Send(new GetStartupByIdQuery(id));
@@ -28,7 +31,18 @@ namespace Startups.API.Controllers
             return Ok(startup);
         }
 
+        [HttpGet("founder/founderId")]
+        [Authorize]
+        public async Task<IActionResult> GetByFounderId(Guid founderId)
+        {
+            var startups = await Mediator.Send(new GetStartupsByFounderIdQuery(founderId));
+
+            if (startups == null) NotFound();
+            return Ok(startups);
+        }
+
         [HttpPost]
+        [Authorize(Roles = "Founder")]
         public async Task<IActionResult> Create(CreateStartupDto startup)
         {
             var createdStartup = await Mediator.Send(new CreateStartupCommand(startup));
@@ -36,6 +50,7 @@ namespace Startups.API.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "Founder")]
         public async Task<IActionResult> Update(UpdateStartupDto startup)
         {
             var updatedStartup = await Mediator.Send(new UpdateStartupCommand(startup));
@@ -43,6 +58,7 @@ namespace Startups.API.Controllers
         }
 
         [HttpDelete("id")]
+        [Authorize(Roles = "Founder")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var deletedStartupId = await Mediator.Send(new DeleteStartupCommand(id));

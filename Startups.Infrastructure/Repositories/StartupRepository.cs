@@ -37,6 +37,11 @@ namespace Startups.Infrastructure.Repositories
             return await _context.Startups.Include(s => s.Founder).SingleOrDefaultAsync(s => s.Id == id);
         }
 
+        public async Task<List<Startup>> GetByFounderIdAsync(Guid founderId)
+        {
+            return await _context.Startups.Include(s => s.Founder).Where(s => s.FounderId == founderId).ToListAsync();
+        }
+
         public async Task<Startup> UpdateAsync(Guid id, Startup startup)
         {
             var existingStartup = await _context.Startups.SingleOrDefaultAsync(s => s.Id == id);
