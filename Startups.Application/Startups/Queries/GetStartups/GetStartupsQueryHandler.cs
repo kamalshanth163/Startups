@@ -18,8 +18,13 @@ namespace Startups.Application.Startups.Queries.GetStartups
 
         public async Task<List<StartupDto>> Handle(GetStartupsQuery request, CancellationToken cancellationToken)
         {
+            // Gets all the startups
             var startups = await _startupRepository.GetAllAsync();
+
+            // Maps to startup models to DTOs
             var startupDtos = _mapper.Map<List<StartupDto>>(startups);
+
+            // Returns the mapped startup DTOs
             return startupDtos;
         }
     }

@@ -18,6 +18,7 @@ namespace Startups.Infrastructure.Services
             _config = config;
         }
 
+        // Creates a JWT token for the provided founder.
         public string CreateToken(Founder founder)
         {
             List<Claim> claims = new List<Claim>
@@ -41,6 +42,7 @@ namespace Startups.Infrastructure.Services
             return jwt;
         }
 
+        // Creates a password hash using HMACSHA512 algorithm.
         public void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hmac = new HMACSHA512())
@@ -50,6 +52,7 @@ namespace Startups.Infrastructure.Services
             }
         }
 
+        // Verifies the password hash against the provided password and salt.
         public bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
         {
             using (var hmac = new HMACSHA512(passwordSalt))

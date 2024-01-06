@@ -21,14 +21,20 @@ namespace Startups.Application.Startups.Commands.CreateStartup
 
         public async Task<StartupDto> Handle(CreateStartupCommand request, CancellationToken cancellationToken)
         {
+            // Gets a founder using id
             var founder = await _founderRepository.GetByIdAsync(request.Startup.FounderId);
 
+            // Maps startup model to limit accessiblities of properties
             var newStartup = _mapper.Map<Startup>(request.Startup);
+
+            // Assigns the retrieved founder to the new startup
             newStartup.Founder = founder;
 
+            // Creates a new startup from repository
             var createdStartup = await _startupRepository.CreateAsync(newStartup);
-            var startupDto = _mapper.Map<StartupDto>(createdStartup);
 
+            // Maps and returns created startup model
+            var startupDto = _mapper.Map<StartupDto>(createdStartup);
             return startupDto;
         }
     }

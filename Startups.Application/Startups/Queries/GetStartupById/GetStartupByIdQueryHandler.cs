@@ -18,8 +18,13 @@ namespace Startups.Application.Startups.Queries.GetStartupById
 
         public async Task<StartupDto> Handle(GetStartupByIdQuery request, CancellationToken cancellationToken)
         {
+            // Gets starup by id from repository
             var startup = await _startupRepository.GetByIdAsync(request.Id);
+
+            // Maps to limit accessible properties
             var startupDto = _mapper.Map<StartupDto>(startup);
+
+            // Returns the mapped startup DTO
             return startupDto;
         }
     }

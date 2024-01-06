@@ -18,8 +18,13 @@ namespace Startups.Application.Startups.Queries.GetStartupById
 
         public async Task<List<StartupDto>> Handle(GetStartupsByFounderIdQuery request, CancellationToken cancellationToken)
         {
+            // Gets startups of a specific founder using founderId
             var startups = await _startupRepository.GetByFounderIdAsync(request.FounderId);
+
+            // Maps the startups to DTOs
             var startupDtos = _mapper.Map<List<StartupDto>>(startups);
+
+            // Returns the mapped startup DTOs
             return startupDtos;
         }
     }
