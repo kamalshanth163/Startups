@@ -6,6 +6,7 @@ namespace Startups.Domain.Entities
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
+        public string Name { get; set; } = null!;
         public string BusinessDomain { get; set; } = null!;
         public string Description { get; set; } = null!;
         public decimal GrossSales { get; set; } = 0;

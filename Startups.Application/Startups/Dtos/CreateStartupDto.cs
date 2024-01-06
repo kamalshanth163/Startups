@@ -5,6 +5,7 @@ namespace Startups.Application.Startups.Dtos
 {
     public class CreateStartupDto : IMapFrom<Startup>
     {
+        public string Name { get; set; } = null!;
         public string BusinessDomain { get; set; } = null!;
         public string Description { get; set; } = null!;
         public decimal GrossSales { get; set; } = 0;
