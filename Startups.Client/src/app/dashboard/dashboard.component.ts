@@ -70,16 +70,16 @@ export class DashboardComponent implements OnInit {
     // Send POST request to create a new startup
     if (this.loggedUser.token) {
       axios.post(environment.apiUrl + '/startups', newStartupData, {
-          headers: {
-            Authorization: `Bearer ${this.loggedUser.token}`
-          }
-        })
+        headers: {
+          Authorization: `Bearer ${this.loggedUser.token}`
+        }
+      })
         .then((response: any) => {
           // Refresh the startup list or perform necessary actions after creating a startup
           this.getAllStartups();
           // Close the modal after creating a startup
           var createStartupModal = document.getElementById('createStartupModal'); // This will close the modal
-          if(createStartupModal !== null) createStartupModal.click();
+          if (createStartupModal !== null) createStartupModal.click();
         })
         .catch((error: any) => {
           console.error('Failed:', error);
@@ -96,6 +96,16 @@ export class DashboardComponent implements OnInit {
     this.filteredStartups = this.startups.filter((startup) =>
       startup.name.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
+  }
+
+  filterFounderStartups() {
+    this.filteredStartups = this.startups.filter((startup) =>
+      startup.founderId === this.loggedUser.id
+    );
+  }
+
+  filterAllStartups() {
+    this.filteredStartups = this.startups;
   }
 
   // Verify JWT token validation

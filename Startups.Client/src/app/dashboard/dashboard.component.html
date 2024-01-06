@@ -1,15 +1,24 @@
 
 <div class="container mt-4">
-  <h1 class="text-center mb-4">Startups</h1>
 
-  <div class="row mb-4">
-    <div class="col-md-12 text-center">
+  <div class="top-section">
+    <div class="left">
+      <h1 class="title">Startups</h1>
+    </div>
+
+    <div class="left">
+      <div class="user-info">
+        <span><b>{{ loggedUser.name }}</b></span> |
+        <span>{{ loggedUser.email }}</span>
+      </div>
       <button class="btn btn-danger" (click)="logout()">Logout</button>
     </div>
   </div>
 
-  <div class="row mb-3">
-    <div class="col-md-6 offset-md-3">
+  <hr>
+
+  <div class="search-area">
+    <div class="left">
       <input
         type="text"
         [(ngModel)]="searchTerm"
@@ -18,10 +27,11 @@
         (input)="filterStartups()"
       />
     </div>
-  </div>
-
-  <div class="mb-4">
-    <a class="mb-4 btn btn-success" href="./create-startup">Create New Startup</a>
+    <div class="right">
+      <a class="btn btn-success" href="./create-startup">Create New</a>
+      <a class="btn btn-primary" (click)="filterFounderStartups()">My Startups</a>
+      <a class="btn btn-dark" (click)="filterAllStartups()">View All</a>
+    </div>
   </div>
 
   <div class="row">

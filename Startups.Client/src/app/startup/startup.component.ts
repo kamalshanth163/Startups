@@ -75,6 +75,7 @@ export class StartupComponent implements OnInit {
       })
         .then((response: any) => {
           this.startup = response.data;
+          alert("Updated successfully!");
         })
         .catch((error: any) => {
           console.error('Failed:', error);

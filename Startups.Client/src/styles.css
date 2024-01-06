@@ -9,3 +9,36 @@ label {
 .card {
   cursor: pointer;
 }
+
+.btn {
+  margin-right: 4px;
+}
+
+.search-area {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.search-area .left{
+  width: 400px;
+}
+
+.top-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-section .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.top-section .left .user-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
