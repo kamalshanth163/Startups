@@ -25,44 +25,79 @@ namespace Startups.API.Controllers
         [Authorize]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var startup = await Mediator.Send(new GetStartupByIdQuery(id));
+            try
+            {
+                var startup = await Mediator.Send(new GetStartupByIdQuery(id));
 
-            if (startup == null) NotFound();
-            return Ok(startup);
+                if (startup == null) NotFound();
+                return Ok(startup);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("founder/founderId")]
         [Authorize]
         public async Task<IActionResult> GetByFounderId(Guid founderId)
         {
-            var startups = await Mediator.Send(new GetStartupsByFounderIdQuery(founderId));
+            try
+            {
+                var startups = await Mediator.Send(new GetStartupsByFounderIdQuery(founderId));
 
-            if (startups == null) NotFound();
-            return Ok(startups);
+                if (startups == null) NotFound();
+                return Ok(startups);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
         [Authorize(Roles = "Founder")]
         public async Task<IActionResult> Create(CreateStartupDto startup)
         {
-            var createdStartup = await Mediator.Send(new CreateStartupCommand(startup));
-            return CreatedAtAction(nameof(GetById), new { id = createdStartup.Id }, createdStartup);
+            try
+            {
+                var createdStartup = await Mediator.Send(new CreateStartupCommand(startup));
+                return CreatedAtAction(nameof(GetById), new { id = createdStartup.Id }, createdStartup);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut]
         [Authorize(Roles = "Founder")]
         public async Task<IActionResult> Update(UpdateStartupDto startup)
         {
-            var updatedStartup = await Mediator.Send(new UpdateStartupCommand(startup));
-            return CreatedAtAction(nameof(GetById), new { id = updatedStartup.Id }, updatedStartup);
+            try
+            {
+                var updatedStartup = await Mediator.Send(new UpdateStartupCommand(startup));
+                return CreatedAtAction(nameof(GetById), new { id = updatedStartup.Id }, updatedStartup);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("id")]
         [Authorize(Roles = "Founder")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var deletedStartupId = await Mediator.Send(new DeleteStartupCommand(id));
-            return Ok(deletedStartupId);
+            try
+            {
+                var deletedStartupId = await Mediator.Send(new DeleteStartupCommand(id));
+                return Ok(deletedStartupId);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
