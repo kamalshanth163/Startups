@@ -52,7 +52,7 @@ export class StartupComponent implements OnInit {
 
   getStartupById() {
     if (this.token) {
-      axios.get(`${environment.apiUrl}/startups/id?id=${this.startupId}`, {
+      axios.get(`${environment.apiUrl}/startups/${this.startupId}`, {
         headers: {
           Authorization: `Bearer ${this.token}`
         }
@@ -92,7 +92,7 @@ export class StartupComponent implements OnInit {
       const confirmDelete = confirm('Are you sure you want to delete this startup?');
 
       if (confirmDelete) {
-        axios.delete(`${environment.apiUrl}/startups/id?id=${this.startupId}`, {
+        axios.delete(`${environment.apiUrl}/startups/${this.startupId}`, {
           headers: {
             Authorization: `Bearer ${this.token}`
           }

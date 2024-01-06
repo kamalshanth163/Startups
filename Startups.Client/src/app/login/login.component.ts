@@ -23,6 +23,7 @@ export class LoginComponent {
         }
       })
       .catch((error: any) => {
+        alert('Invalid Email or Password');
         console.error('Login failed:', error);
       });
   }

@@ -23,6 +23,7 @@ export class RegisterComponent {
         }
       })
       .catch((error: any) => {
+        alert('Email should not be already registered. \nPassword must be 8 characters atleast.');
         console.error('Registration failed:', error);
       });
   }
