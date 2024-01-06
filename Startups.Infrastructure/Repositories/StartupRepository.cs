@@ -48,6 +48,7 @@ namespace Startups.Infrastructure.Repositories
 
             if (existingStartup != null)
             {
+                existingStartup.Name = startup.Name;
                 existingStartup.BusinessDomain = startup.BusinessDomain;
                 existingStartup.Description = startup.Description;
                 existingStartup.GrossSales = startup.GrossSales;

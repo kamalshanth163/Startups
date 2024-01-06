@@ -59,7 +59,6 @@ export class DashboardComponent implements OnInit {
         .then((response: any) => {
           this.startups = response.data;
           this.filteredStartups = response.data;
-          console.log(this.startups);
         })
         .catch((error: any) => {
           console.error('Failed:', error);
@@ -68,7 +67,6 @@ export class DashboardComponent implements OnInit {
   }
 
   redirectToStartup(startupId: string): void {
-    console.log(startupId);
     this.router.navigate(['/startup', startupId]);
   }
 
