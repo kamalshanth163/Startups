@@ -12,13 +12,13 @@ export class LoginComponent {
   showLoginForm: boolean = true;
   loginData: any = { email: '', password: '' };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   login() {
     axios.post(environment.apiUrl + '/founders/login', this.loginData)
       .then((response: any) => {
         if (response?.data?.token) {
-          localStorage.setItem('startups-api-token', response.data.token);
+          localStorage.setItem('startups-user', JSON.stringify(response.data));
           this.router.navigate(['/dashboard']);
         }
       })
@@ -27,7 +27,7 @@ export class LoginComponent {
       });
   }
 
-  ngOnInit(){
-    localStorage.setItem('startups-api-token', "");
+  ngOnInit() {
+    localStorage.setItem('startups-user', JSON.stringify({}));
   }
 }

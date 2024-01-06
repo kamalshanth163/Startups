@@ -12,22 +12,22 @@ export class RegisterComponent {
   showRegisterForm: boolean = true;
   registerData: any = { name: '', email: '', password: '' };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   register() {
     axios.post(environment.apiUrl + '/founders/register', this.registerData)
-    .then((response: any) => {
-      if (response?.data?.token) {
-        localStorage.setItem('startups-api-token', response.data.token);
-        this.router.navigate(['/dashboard']);
-      }
-    })
-    .catch((error: any) => {
-      console.error('Registration failed:', error);
-    });
+      .then((response: any) => {
+        if (response?.data?.token) {
+          localStorage.setItem('startups-user', JSON.stringify(response.data));
+          this.router.navigate(['/dashboard']);
+        }
+      })
+      .catch((error: any) => {
+        console.error('Registration failed:', error);
+      });
   }
 
-  ngOnInit(){
-    localStorage.setItem('startups-api-token', "");
+  ngOnInit() {
+    localStorage.setItem('startups-user', JSON.stringify({}));
   }
 }

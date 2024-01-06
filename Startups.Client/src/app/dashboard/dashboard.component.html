@@ -1,6 +1,12 @@
 <div class="container mt-4">
   <h1 class="text-center mb-4">Startups</h1>
 
+  <div class="row mb-4">
+    <div class="col-md-12 text-center">
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
+    </div>
+  </div>
+
   <div class="row mb-3">
     <div class="col-md-6 offset-md-3">
       <input
@@ -15,10 +21,10 @@
 
   <div class="row">
     <div class="col-md-4 mb-3" *ngFor="let startup of filteredStartups">
-      <div class="card">
+      <div class="card" (click)="redirectToStartup(startup.id)">
         <div class="card-body">
           <h2 class="card-title">{{ startup.name }}</h2>
-          <a [href]="startup.website" target="_blank" class="card-link">{{ startup.website }}</a>
+          <a [href]="appService.sanitizeUrl(startup.website)" target="_blank" class="card-link">{{ startup.website }}</a>
         </div>
       </div>
     </div>

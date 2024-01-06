@@ -1,0 +1,59 @@
+<div class="container mt-4">
+  <h1>Startup</h1>
+  <form #startupForm="ngForm" (ngSubmit)="saveStartup()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="startup.name" [disabled]="!isEditable()">
+    </div>
+
+    <div class="form-group">
+      <label for="businessDomain">Business Domain</label>
+      <input type="text" class="form-control" id="businessDomain" name="businessDomain" [(ngModel)]="startup.businessDomain" [disabled]="!isEditable()">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" name="description" [(ngModel)]="startup.description" [disabled]="!isEditable()"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="grossSales">Gross Sales</label>
+      <input type="number" class="form-control" id="grossSales" name="grossSales" [(ngModel)]="startup.grossSales" [disabled]="!isEditable()">
+    </div>
+
+    <div class="form-group">
+      <label for="netSales">Net Sales</label>
+      <input type="number" class="form-control" id="netSales" name="netSales" [(ngModel)]="startup.netSales" [disabled]="!isEditable()">
+    </div>
+
+    <div class="form-group">
+      <label for="businessStartDate">Business Start Date</label>
+      <input type="text" class="form-control" id="businessStartDate" name="businessStartDate"
+        [value]="appService.formatDate(startup.businessStartDate)" [disabled]="!isEditable()">
+    </div>
+
+    <div class="form-group">
+      <label for="website">Website</label>
+      <input type="text" class="form-control" id="website" name="website" [(ngModel)]="startup.website" [disabled]="!isEditable()">
+    </div>
+
+    <div class="form-group">
+      <label for="businessLocation">Business Location</label>
+      <input type="text" class="form-control" id="businessLocation" name="businessLocation" [(ngModel)]="startup.businessLocation" [disabled]="!isEditable()">
+    </div>
+
+    <div class="form-group">
+      <label for="employeeCount">Employee Count</label>
+      <input type="number" class="form-control" id="employeeCount" name="employeeCount" [(ngModel)]="startup.employeeCount" [disabled]="!isEditable()">
+    </div>
+
+    <div class="form-group">
+      <label for="founderName">Founder</label>
+      <input type="text" class="form-control" id="founderName" name="founderName" [(ngModel)]="startup.founderName" [disabled]="!isEditable()">
+    </div>
+
+    <button type="submit" class="btn btn-primary" *ngIf="isEditable()" (click)="saveStartup()" >Save</button>
+
+    <button type="button" class="btn btn-danger" *ngIf="isEditable()" (click)="deleteStartup()">Delete</button>
+  </form>
+</div>
