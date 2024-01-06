@@ -1,0 +1,72 @@
+<div class="container mt-4">
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <div class="mb-4">
+        <a class="mb-4" href="./dashboard">Back to Dashboard</a>
+      </div>
+
+      <h1>Create Startup</h1>
+      <form #startupForm="ngForm">
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name" [(ngModel)]="startup.name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="businessDomain">Business Domain</label>
+              <input type="text" class="form-control" id="businessDomain" name="businessDomain" [(ngModel)]="startup.businessDomain" required>
+            </div>
+
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea class="form-control" id="description" name="description" [(ngModel)]="startup.description" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="grossSales">Gross Sales</label>
+              <input type="number" class="form-control" id="grossSales" name="grossSales" [(ngModel)]="startup.grossSales" required>
+            </div>
+
+            <div class="form-group">
+              <label for="netSales">Net Sales</label>
+              <input type="number" class="form-control" id="netSales" name="netSales" [(ngModel)]="startup.netSales" required>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="businessStartDate">Business Start Date</label>
+              <input type="date" class="form-control" id="businessStartDate" name="businessStartDate" [(ngModel)]="startup.businessStartDate" required>
+            </div>
+
+            <div class="form-group">
+              <label for="website">Website</label>
+              <input type="text" class="form-control" id="website" name="website" [(ngModel)]="startup.website" required>
+            </div>
+
+            <div class="form-group">
+              <label for="businessLocation">Business Location</label>
+              <input type="text" class="form-control" id="businessLocation" name="businessLocation" [(ngModel)]="startup.businessLocation" required>
+            </div>
+
+            <div class="form-group">
+              <label for="employeeCount">Employee Count</label>
+              <input type="number" class="form-control" id="employeeCount" name="employeeCount" [(ngModel)]="startup.employeeCount" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <button type="submit" class="btn btn-primary" (click)="createStartup()">Create</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+</div>

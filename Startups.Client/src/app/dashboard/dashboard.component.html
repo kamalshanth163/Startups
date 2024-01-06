@@ -20,6 +20,10 @@
     </div>
   </div>
 
+  <div class="mb-4">
+    <a class="mb-4 btn btn-success" href="./create-startup">Create New Startup</a>
+  </div>
+
   <div class="row">
     <div class="col-md-4 mb-3" *ngFor="let startup of filteredStartups">
       <div class="card" (click)="redirectToStartup(startup.id)">

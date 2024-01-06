@@ -8,7 +8,7 @@ export class AppService {
 
   constructor(private sanitizer: DomSanitizer) { }
 
-  formatDate(dateString: string): string {
+  formatDate(dateString: Date): string {
     if (!dateString) return '';
 
     const date = new Date(dateString);

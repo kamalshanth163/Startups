@@ -5,7 +5,7 @@ export interface Startup {
   description: string;
   grossSales: number;
   netSales: number;
-  businessStartDate: string;
+  businessStartDate: Date;
   website: string;
   businessLocation: string;
   employeeCount: number;

@@ -66,6 +66,27 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  createStartup(newStartupData: any): void {
+    // Send POST request to create a new startup
+    if (this.loggedUser.token) {
+      axios.post(environment.apiUrl + '/startups', newStartupData, {
+          headers: {
+            Authorization: `Bearer ${this.loggedUser.token}`
+          }
+        })
+        .then((response: any) => {
+          // Refresh the startup list or perform necessary actions after creating a startup
+          this.getAllStartups();
+          // Close the modal after creating a startup
+          var createStartupModal = document.getElementById('createStartupModal'); // This will close the modal
+          if(createStartupModal !== null) createStartupModal.click();
+        })
+        .catch((error: any) => {
+          console.error('Failed:', error);
+        });
+    }
+  }
+
   redirectToStartup(startupId: string): void {
     this.router.navigate(['/startup', startupId]);
   }

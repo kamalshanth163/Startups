@@ -18,7 +18,7 @@ export class StartupComponent implements OnInit {
     description: '',
     grossSales: 0,
     netSales: 0,
-    businessStartDate: '',
+    businessStartDate: new Date(),
     website: '',
     businessLocation: '',
     employeeCount: 0,
@@ -91,13 +91,13 @@ export class StartupComponent implements OnInit {
       const confirmDelete = confirm('Are you sure you want to delete this startup?');
 
       if (confirmDelete) {
-        axios.delete(`${environment.apiUrl}/startups/${this.startupId}`, {
+        axios.delete(`${environment.apiUrl}/startups/id?id=${this.startupId}`, {
           headers: {
             Authorization: `Bearer ${this.token}`
           }
         })
           .then((response: any) => {
-            this.router.navigate(['/login']);
+            this.router.navigate(['/dashboard']);
           })
           .catch((error: any) => {
             console.error('Failed:', error);
