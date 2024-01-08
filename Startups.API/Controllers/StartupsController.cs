@@ -18,7 +18,7 @@ namespace Startups.API.Controllers
         /// </summary>
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> GetAllStartups()
+        public async Task<IActionResult> GetAll()
         {
             // Fetches a list of all startups
             var startups = await Mediator.Send(new GetStartupsQuery());
@@ -32,7 +32,7 @@ namespace Startups.API.Controllers
         /// </summary>        
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<IActionResult> GetStartupById(Guid id)
+        public async Task<IActionResult> GetById(Guid id)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace Startups.API.Controllers
         /// </summary>
         [HttpGet("founder/{founderId}")]
         [Authorize]
-        public async Task<IActionResult> GetStartupsByFounderId(Guid founderId)
+        public async Task<IActionResult> GetByFounderId(Guid founderId)
         {
             try
             {
@@ -82,7 +82,7 @@ namespace Startups.API.Controllers
         /// </summary>        
         [HttpPost]
         [Authorize(Roles = "Founder")]
-        public async Task<IActionResult> CreateNewStartup(CreateStartupDto startupDto)
+        public async Task<IActionResult> Create(CreateStartupDto startupDto)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace Startups.API.Controllers
                 var createdStartup = await Mediator.Send(new CreateStartupCommand(startupDto));
 
                 // Returns a '201 Created' response with the newly created startup's details
-                return CreatedAtAction(nameof(GetStartupById), new { id = createdStartup.Id }, createdStartup);
+                return CreatedAtAction(nameof(GetById), new { id = createdStartup.Id }, createdStartup);
             }
             catch (Exception ex)
             {
@@ -104,7 +104,7 @@ namespace Startups.API.Controllers
         /// </summary>        
         [HttpPut]
         [Authorize(Roles = "Founder")]
-        public async Task<IActionResult> UpdateExistingStartup(UpdateStartupDto startupDto)
+        public async Task<IActionResult> Update(UpdateStartupDto startupDto)
         {
             try
             {
@@ -112,7 +112,7 @@ namespace Startups.API.Controllers
                 var updatedStartup = await Mediator.Send(new UpdateStartupCommand(startupDto));
 
                 // Returns a '201 Created' response with the updated startup's details
-                return CreatedAtAction(nameof(GetStartupById), new { id = updatedStartup.Id }, updatedStartup);
+                return CreatedAtAction(nameof(GetById), new { id = updatedStartup.Id }, updatedStartup);
             }
             catch (Exception ex)
             {
@@ -126,7 +126,7 @@ namespace Startups.API.Controllers
         /// </summary>
         [HttpDelete("{id}")]
         [Authorize(Roles = "Founder")]
-        public async Task<IActionResult> DeleteStartup(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             try
             {
