@@ -1,4 +1,4 @@
-Startups: Online platform for the founders to manage their startups and view others.
+Startups: Online platform for the founders to manage their startups.
 
 Tools and Technologies
 - .NET6 Web Api
